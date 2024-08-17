@@ -1,24 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WebView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="https://example.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="1gr-aE-PzW">
+                                <rect key="frame" x="20" y="144" width="390" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8j-Ck-83g">
+                                <rect key="frame" x="20" y="854" width="390" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Open with WebKit WebView"/>
+                                <connections>
+                                    <action selector="openWebView" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dx-oB-oaB"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcV-bm-3QE">
+                                <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                                <items>
+                                    <navigationItem title="WebView" id="h5p-gb-hWq">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="4MZ-aE-27l">
+                                            <connections>
+                                                <action selector="closeWebView" destination="BYZ-38-t0r" id="FRI-E1-SJd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffn-Zh-grQ">
+                                <rect key="frame" x="20" y="780" width="390" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Open with Safari WebView"/>
+                                <connections>
+                                    <action selector="openSafariView" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIA-gs-YqY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="A8j-Ck-83g" firstAttribute="leading" secondItem="1gr-aE-PzW" secondAttribute="leading" id="5Y9-gj-TaO"/>
+                            <constraint firstItem="XcV-bm-3QE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5tV-G1-yXP"/>
+                            <constraint firstItem="1gr-aE-PzW" firstAttribute="centerX" secondItem="XcV-bm-3QE" secondAttribute="centerX" id="DnU-6I-P6B"/>
+                            <constraint firstItem="ffn-Zh-grQ" firstAttribute="trailing" secondItem="A8j-Ck-83g" secondAttribute="trailing" id="Gff-hd-Jtx"/>
+                            <constraint firstItem="XcV-bm-3QE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Irk-So-ui0"/>
+                            <constraint firstItem="A8j-Ck-83g" firstAttribute="top" secondItem="ffn-Zh-grQ" secondAttribute="bottom" constant="39" id="Jrz-4e-zWT"/>
+                            <constraint firstItem="XcV-bm-3QE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Yig-nQ-Enp"/>
+                            <constraint firstItem="ffn-Zh-grQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1gr-aE-PzW" secondAttribute="trailing" id="ecA-ae-Fp2"/>
+                            <constraint firstItem="ffn-Zh-grQ" firstAttribute="leading" secondItem="A8j-Ck-83g" secondAttribute="leading" id="hhb-cE-qKa"/>
+                            <constraint firstItem="1gr-aE-PzW" firstAttribute="top" secondItem="XcV-bm-3QE" secondAttribute="bottom" constant="41" id="tMI-BG-3Hw"/>
+                            <constraint firstItem="XcV-bm-3QE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tuP-s2-qzc"/>
+                            <constraint firstAttribute="bottom" secondItem="ffn-Zh-grQ" secondAttribute="bottom" constant="117" id="vC5-Xz-TZU"/>
+                            <constraint firstItem="1gr-aE-PzW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wHp-HG-JYp"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="NavigationBar" destination="XcV-bm-3QE" id="pfo-6M-Fpo"/>
+                        <outlet property="navigationBar" destination="XcV-bm-3QE" id="g4Z-89-jkF"/>
+                        <outlet property="navigationBarButton" destination="4MZ-aE-27l" id="aM1-3H-ROO"/>
+                        <outlet property="url" destination="1gr-aE-PzW" id="cEc-N9-Zvr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="135.38461538461539" y="3.5545023696682461"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
